@@ -3,6 +3,10 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
+import { ReservationModule } from './reservation/reservation.module';
+import { ReservationService } from './reservation/reservation.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,10 +14,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomeModule,
+    ReservationModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    ReservationService
   ],
   bootstrap: [AppComponent]
 })
